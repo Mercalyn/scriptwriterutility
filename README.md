@@ -15,15 +15,9 @@ Displays handy features:
 
 m0ar to come:
 
--character list:
-
-  a. name
+-estimated cost to hire amateur/pro
   
-  b. number of individual spoken words
-  
-  c. estimated cost to hire voice actor
-  
--voice actor highlight
+-voice actor highlight image
 
 --
 
