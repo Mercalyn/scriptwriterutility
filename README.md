@@ -49,3 +49,8 @@ Number of Characters: 2
 
 Estimated Length: 0.079 to 0.13 minutes
 
+Character and Wordcount List:
+
+JIM - 12
+
+BOB - 7
