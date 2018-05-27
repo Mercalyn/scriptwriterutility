@@ -11,6 +11,8 @@ Displays handy features:
 
 -estimated length based solely on spoken words(no pauses or actions, straight reading)
 
+-character list and how many words each speaks
+
 --
 
 m0ar to come:
