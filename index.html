@@ -4,7 +4,7 @@
         <title>Scriptwriters Utility</title>
         <script type="text/javascript" src="print.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css" />
+        <!link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
         
@@ -19,7 +19,7 @@
                     <div class="statSection"><h3>Spoken Word Count: </h3><p id="wordCounter" class="highlightStat">0</p></div><br>
                     <div class="statSection"><h3>Number of Characters: </h3><p id="charCounter" class="highlightStat">0</p></div><br>
                     <div class="statSection"><h3>Estimated Length: </h3><p id="estLengthMin" class="highlightStat">0</p><p> to </p><p id="estLengthMax" class="highlightStat">0</p><p>minutes</p></div><br>
-                    <div class="statSection"><h3>Character and Wordcount List: </h3><div class="statSection"></div></div>
+                    <div class="statSection"><h3>Character and Wordcount List: </h3></div><br><div id="charListout"></div>
                 </div>
             </div>
         </div>
@@ -98,11 +98,19 @@
                 //count no characters
                 $("#charCounter").text(charWordStorage.length);
                 
-                //count total no spoken words
+                
+                //empty charListout otherwise it will keep appending more, needs to empty first
+                $("#charListout").empty();
                 var spokenWordCounter = 0;
+                
+                //iterate through number of length of characters
                 for(spokenWorditeration = 0; spokenWorditeration < charWordStorage.length; spokenWorditeration++){
+                    //spoken words counter
                     spokenWordCounter += charWordStorage[spokenWorditeration].wordcount;
                     $("#wordCounter").text(spokenWordCounter);
+                    
+                    //char lister
+                    $("#charListout").append("<div class='statSection'><p>" + charWordStorage[spokenWorditeration].name + " - </p><p class='highlightStat'> " + charWordStorage[spokenWorditeration].wordcount + "</p></div><br>");
                 }
                 
                 //length estimator
@@ -116,6 +124,80 @@
             
             
         </script>
+        <style>
+        *{
+            font-family: verdana, sans-serif;
+            font-weight: 400;
+            margin: 5px;
+            padding: 0;
+        }
+
+        .inner{
+            width: 600px;
+            height: 800px;
+            border: 0px solid black;
+            display: block;
+            position: relative;
+        }
+
+        #divContainer{
+            position: relative;
+            width: 1230px;
+            height: auto;
+            border: 2px solid #777777;
+            margin: auto;
+            background-color:cornflowerblue;
+
+        }
+
+        #divContInner{
+            display: inline-flex;
+        }
+
+        #divInput{
+
+        }
+
+        #title{
+            color:white;
+            text-transform: uppercase;
+            margin:0px;
+            text-align: center;
+        }
+
+        .highlightStat{
+            font-weight: 700;
+            color: red;
+        }
+
+        #divOutput{
+            right:0px;
+            word-wrap: normal;
+            white-space: nowrap;
+            background-color: white;
+        }
+
+        .statSection{
+            display: inline-flex;
+            margin:0px;
+        }
+
+        p{
+            max-width: 600px;
+            padding-top: 1px;
+        }
+
+        h3{
+            padding: 0px;
+            margin-bottom: -5px;
+        }
+
+        textarea{
+            margin:0px;
+            width: 100%;
+            height: 99.5%;
+        }
         
+        </style>
     </body>
 </html>
